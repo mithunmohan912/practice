@@ -1,0 +1,70 @@
+version: '3.7'
+
+services:
+  currency-exchange-service:
+    image: mithunmohan912/mastermicroservice-currency-exchange-service:0.0.1-SNAPSHOT
+    ports:
+      - "9093:9093"
+    networks:  
+      - currency-network
+    depends_on: 
+      - my-eureka-namingserver  
+    environment:
+      EUREKA.CLIENT.SERVICE-URL.DEFAULTZONE: http://my-eureka-namingserver:8761/eureka
+      EUREKA.INSTANCE.HOSTNAME: currency-exchange-service
+      SPRING.ZIPKIN.BASE-URL: http://zipkin:9411
+      SPRING.ZIPKIN.SENDER.TYPE: Kafka
+      SPRING.KAFKA.BOOTSTRAP.SERVERS: http://localhost:8084
+      SPRING.ZIPKIN.KAFKA.TOPIC: zipkinTopic 
+#    deploy:
+#      replicas: 2
+#      restart_policy: 
+#        condition: on-failure          
+  my-eureka-namingserver:
+    image: mithunmohan912/mastermicroservice-my-eureka-namingserver:0.0.1-SNAPSHOT
+    ports:
+      - 8761:8761
+    networks:
+      - currency-network      
+#  currency-conversion-service:    
+#    image: mithunmohan912/mastermicroservice-currency-conversion-service:0.0.1-SNAPSHOT
+#    ports:
+#      - 8087:8087
+#    environment:     
+#      EUREKA.CLIENT.SERVICE-URL.DEFAULTZONE: http://my-eureka-namingserver:8761/eureka
+#      EUREKA.INSTANCE.HOSTNAME: currency-conversion-service
+#      SPRING.ZIPKIN.BASE-URL: http://zipkin:9411      
+#    networks:
+#      - currency-network
+#    depends_on: 
+#      - my-eureka-namingserver
+#  cloudProxy:
+#    image: mithunmohan912/mastermicroservice-customspringcloudgatewayproxy:0.0.1-SNAPSHOT 
+#    ports: 
+#      - 8088:8088
+#    networks:
+#      - currency-network
+#    environment:     
+#      EUREKA.CLIENT.SERVICE-URL.DEFAULTZONE: http://my-eureka-namingserver:8761/eureka
+#      EUREKA.INSTANCE.HOSTNAME: cloudProxy
+#      SPRING.ZIPKIN.BASE-URL: http://zipkin:9411      
+#    depends_on:
+#      - my-eureka-namingserver
+  zipkin:
+    image: openzipkin/zipkin:latest
+    ports:
+      - 9411:9411
+    networks:
+      - currency-network
+  zookeeper:
+    image: zookeeper:latest
+    container_name: zookeeper
+    ports: 
+      - 2181:2181
+    networks:
+      - currency-network
+  kafka:
+    environment:
+      KAFKA_CREATE_TOPICS: "zipkinTopic:1:2"                                      
+networks: 
+  currency-network:      

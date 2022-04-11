@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: ocb-ui
+  labels:
+    app: ocb-ui
+spec:
+  replicas: 2
+  serviceName: ocb-ui-service
+  selector:
+    matchLabels:
+      app: ocb-ui
+  template:
+    metadata:
+      labels:
+        app: ocb-ui
+    spec:
+       containers:
+       - name: ocb-ui
+         image: "ocb.docker.repositories.sap.ondemand.com/ocb-ui:v83sp06"
+         imagePullPolicy: Always
+         resources:
+           requests:
+             cpu: "2"
+             memory: "2Gi"
+           limits:
+             cpu: "2"
+             memory: "4Gi"
+         livenessProbe:
+           httpGet:
+             path: /ocbweb
+             port: 80
+           initialDelaySeconds: 60
+           timeoutSeconds: 1
+         ports:
+         - containerPort: 80
+       imagePullSecrets:
+       - name: ocb-docker-artifactory
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: ocb-ui-service
+spec:
+  ports:
+  - name: http-ui
+    port: 80
+    targetPort: 80
+    protocol: TCP
+  selector:
+    app: ocb-ui
+  type: ClusterIP

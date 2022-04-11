@@ -1,0 +1,82 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: ocb-db
+  labels: 
+    app: ocb-postgres-db
+spec:
+  replicas: 1
+  serviceName: ocb-db-service
+  selector:
+    matchLabels:
+      app: ocb-postgres-db
+  template:
+    metadata:
+      labels:
+        app: ocb-postgres-db
+    spec:
+      imagePullSecrets:
+      - name: ocb-docker-artifactory
+      containers:
+      - name: ocb-postgres-db
+        image: "ocb.docker.repositories.sap.ondemand.com/ocb-postgres-db:v83sp06"
+        imagePullPolicy: Always
+        env:
+        - name: POSTGRES_USER
+          value: postgres
+        - name: POSTGRES_PASSWORD
+          value: "Pass1234"
+        - name: POSTGRES_INITDB_XLOGDIR
+          value: "/var/log/postgresql/logs"
+        ports:
+        - name: db-port
+          containerPort: 5432
+        volumeMounts:
+        - mountPath: /var/lib/postgresql/data
+          name: postgres-db
+        - mountPath: /var/log/postgresql/logs
+          name: postgres-log
+        resources:
+          requests:
+            cpu: "2"
+            memory: "2Gi"
+          limits:
+            cpu: "2"
+            memory: "2Gi"
+        readinessProbe:
+          tcpSocket:
+            port: db-port
+          initialDelaySeconds: 5
+          periodSeconds: 10
+        livenessProbe:
+          tcpSocket:
+            port: db-port
+          initialDelaySeconds: 10
+          periodSeconds: 20        
+      volumes:
+        - name: postgres-db
+          persistentVolumeClaim:
+            claimName: ocb-postgres-db-pv
+            readOnly: false
+        - name: postgres-log
+          persistentVolumeClaim:
+            claimName: ocb-postgres-log-pv
+            readOnly: false
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: ocb-db-service
+  labels:
+    dbType: postgres
+    dbName: ocb-postgres-database
+spec:
+  ports:
+  - name: tcp-postgres
+    protocol: TCP
+    port: 5432
+    targetPort: 5432
+  selector:
+    app: ocb-postgres-db
+  type: ClusterIP

@@ -1,0 +1,16 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ocb-ingress
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /ocbweb
+        backend:
+          serviceName: ocb-ui-service
+          servicePort: 80
+      - path: /platform-web
+        backend:
+          serviceName: ocb-platform-service
+          servicePort: 8080

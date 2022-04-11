@@ -1,0 +1,55 @@
+2021-02-28 01:39:10.185  INFO 33180 --- [http-nio-8080-exec-9] com.microservices.ELKController          : /elkdemo - &gt; Hello user ! Sun Feb 28 01:39:10 IST 2021
+2021-02-28 13:01:24.873  INFO 24776 --- [restartedMain] com.microservices.ElkApplication         : Starting ElkApplication on PNQN56604357A with PID 24776 (C:\Practice\Microservice\ELK\target\classes started by C5287847 in C:\Practice\Microservice\ELK)
+2021-02-28 13:01:24.879  INFO 24776 --- [restartedMain] com.microservices.ElkApplication         : No active profile set, falling back to default profiles: default
+2021-02-28 13:01:25.100  INFO 24776 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-02-28 13:01:28.542  INFO 24776 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-02-28 13:01:28.570  INFO 24776 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-02-28 13:01:28.571  INFO 24776 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.43]
+2021-02-28 13:01:28.807  INFO 24776 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-02-28 13:01:28.810  INFO 24776 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3708 ms
+2021-02-28 13:01:29.502  INFO 24776 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-02-28 13:01:30.021  INFO 24776 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-02-28 13:01:30.037  INFO 24776 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2021-02-28 13:01:30.162  INFO 24776 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-02-28 13:01:30.194  INFO 24776 --- [restartedMain] com.microservices.ElkApplication         : Started ElkApplication in 6.703 seconds (JVM running for 8.494)
+2021-02-28 13:01:58.465  INFO 24776 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-02-28 13:01:58.472  INFO 24776 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-02-28 13:01:58.488  INFO 24776 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 13 ms
+2021-02-28 13:01:58.536  INFO 24776 --- [http-nio-8080-exec-1] com.microservices.ELKController          : /elkdemo - &gt; Hello user ! Sun Feb 28 13:01:58 IST 2021
+2021-02-28 13:02:30.694  INFO 24776 --- [http-nio-8080-exec-2] com.microservices.ELKController          : /elkdemo - &gt; Hello user ! Sun Feb 28 13:02:30 IST 2021
+2021-02-28 13:10:39.415  INFO 24776 --- [http-nio-8080-exec-5] com.microservices.ELKController          : /elkdemo - &gt; Hello user ! Sun Feb 28 13:10:39 IST 2021
+2021-02-28 13:10:41.866  INFO 24776 --- [http-nio-8080-exec-6] com.microservices.ELKController          : /elkdemo - &gt; Hello user ! Sun Feb 28 13:10:41 IST 2021
+2021-02-28 13:10:42.050  INFO 24776 --- [http-nio-8080-exec-7] com.microservices.ELKController          : /elkdemo - &gt; Hello user ! Sun Feb 28 13:10:42 IST 2021
+2021-02-28 13:10:42.251  INFO 24776 --- [http-nio-8080-exec-8] com.microservices.ELKController          : /elkdemo - &gt; Hello user ! Sun Feb 28 13:10:42 IST 2021
+2021-02-28 13:10:42.411  INFO 24776 --- [http-nio-8080-exec-9] com.microservices.ELKController          : /elkdemo - &gt; Hello user ! Sun Feb 28 13:10:42 IST 2021
+2021-02-28 13:10:42.627  INFO 24776 --- [http-nio-8080-exec-10] com.microservices.ELKController          : /elkdemo - &gt; Hello user ! Sun Feb 28 13:10:42 IST 2021
+2021-02-28 13:10:42.969  INFO 24776 --- [http-nio-8080-exec-1] com.microservices.ELKController          : /elkdemo - &gt; Hello user ! Sun Feb 28 13:10:42 IST 2021
+2021-02-28 13:10:43.234  INFO 24776 --- [http-nio-8080-exec-2] com.microservices.ELKController          : /elkdemo - &gt; Hello user ! Sun Feb 28 13:10:43 IST 2021
+2021-02-28 13:10:43.385  INFO 24776 --- [http-nio-8080-exec-3] com.microservices.ELKController          : /elkdemo - &gt; Hello user ! Sun Feb 28 13:10:43 IST 2021
+2021-02-28 13:10:43.553  INFO 24776 --- [http-nio-8080-exec-4] com.microservices.ELKController          : /elkdemo - &gt; Hello user ! Sun Feb 28 13:10:43 IST 2021
+
+2021-02-28 13:17:57.463  INFO 24776 --- [http-nio-8080-exec-7] com.microservices.ELKController          : /elkdemo - &gt; Hello user ! Sun Feb 28 13:17:57 IST 2021
+2021-02-28 13:17:57.658  INFO 24776 --- [http-nio-8080-exec-8] com.microservices.ELKController          : /elkdemo - &gt; Hello user ! Sun Feb 28 13:17:57 IST 2021
+2021-02-28 13:17:57.871  INFO 24776 --- [http-nio-8080-exec-9] com.microservices.ELKController          : /elkdemo - &gt; Hello user ! Sun Feb 28 13:17:57 IST 2021
+2021-02-28 13:17:58.055  INFO 24776 --- [http-nio-8080-exec-10] com.microservices.ELKController          : /elkdemo - &gt; Hello user ! Sun Feb 28 13:17:58 IST 2021
+2021-02-28 13:17:58.233  INFO 24776 --- [http-nio-8080-exec-1] com.microservices.ELKController          : /elkdemo - &gt; Hello user ! Sun Feb 28 13:17:58 IST 2021
+2021-02-28 13:20:46.804  INFO 24776 --- [http-nio-8080-exec-4] com.microservices.ELKController          : /elkdemo - &gt; Hello user ! Sun Feb 28 13:20:46 IST 2021
+2021-02-28 13:22:54.086  INFO 24776 --- [http-nio-8080-exec-7] com.microservices.ELKController          : /elkdemo - &gt; Hello user ! Sun Feb 28 13:22:54 IST 2021
+2021-02-28 13:24:40.683  INFO 24776 --- [http-nio-8080-exec-10] com.microservices.ELKController          : /elkdemo - &gt; Hello user ! Sun Feb 28 13:24:40 IST 2021
+2021-02-28 13:25:04.730  INFO 24776 --- [http-nio-8080-exec-1] com.microservices.ELKController          : /elkdemo - &gt; Hello user ! Sun Feb 28 13:25:04 IST 2021
+2021-02-28 13:27:12.237  INFO 24776 --- [http-nio-8080-exec-4] com.microservices.ELKController          : /elkdemo - &gt; Hello user ! Sun Feb 28 13:27:12 IST 2021
+2021-02-28 13:27:17.763  INFO 24776 --- [http-nio-8080-exec-6] com.microservices.ELKController          : /elkdemo - &gt; Hello user ! Sun Feb 28 13:27:17 IST 2021
+2021-02-28 13:27:49.644  INFO 24776 --- [http-nio-8080-exec-5] com.microservices.ELKController          : /elkdemo - &gt; Hello user ! Sun Feb 28 13:27:49 IST 2021
+2021-02-28 13:27:49.853  INFO 24776 --- [http-nio-8080-exec-7] com.microservices.ELKController          : /elkdemo - &gt; Hello user ! Sun Feb 28 13:27:49 IST 2021
+2021-02-28 13:27:50.014  INFO 24776 --- [http-nio-8080-exec-9] com.microservices.ELKController          : /elkdemo - &gt; Hello user ! Sun Feb 28 13:27:50 IST 2021
+2021-02-28 13:32:40.282  INFO 24776 --- [http-nio-8080-exec-1] com.microservices.ELKController          : /elkdemo - &gt; Hello user ! Sun Feb 28 13:32:40 IST 2021
+2021-02-28 13:34:52.686  INFO 24776 --- [http-nio-8080-exec-4] com.microservices.ELKController          : /elkdemo - &gt; Hello user ! Sun Feb 28 13:34:52 IST 2021
+2021-02-28 13:34:52.871  INFO 24776 --- [http-nio-8080-exec-6] com.microservices.ELKController          : /elkdemo - &gt; Hello user ! Sun Feb 28 13:34:52 IST 2021
+2021-02-28 13:34:53.039  INFO 24776 --- [http-nio-8080-exec-5] com.microservices.ELKController          : /elkdemo - &gt; Hello user ! Sun Feb 28 13:34:53 IST 2021
+2021-02-28 13:34:53.187  INFO 24776 --- [http-nio-8080-exec-7] com.microservices.ELKController          : /elkdemo - &gt; Hello user ! Sun Feb 28 13:34:53 IST 2021
+2021-02-28 13:34:53.305  INFO 24776 --- [http-nio-8080-exec-9] com.microservices.ELKController          : /elkdemo - &gt; Hello user ! Sun Feb 28 13:34:53 IST 2021
+2021-02-28 13:34:53.452  INFO 24776 --- [http-nio-8080-exec-8] com.microservices.ELKController          : /elkdemo - &gt; Hello user ! Sun Feb 28 13:34:53 IST 2021
+2021-02-28 13:37:10.867  INFO 24776 --- [http-nio-8080-exec-2] com.microservices.ELKController          : /elkdemo - &gt; Hello user ! Sun Feb 28 13:37:10 IST 2021
+2021-02-28 13:37:11.220  INFO 24776 --- [http-nio-8080-exec-3] com.microservices.ELKController          : /elkdemo - &gt; Hello user ! Sun Feb 28 13:37:11 IST 2021
+2021-02-28 13:37:11.414  INFO 24776 --- [http-nio-8080-exec-4] com.microservices.ELKController          : /elkdemo - &gt; Hello user ! Sun Feb 28 13:37:11 IST 2021
+2021-02-28 13:37:11.574  INFO 24776 --- [http-nio-8080-exec-6] com.microservices.ELKController          : /elkdemo - &gt; Hello user ! Sun Feb 28 13:37:11 IST 2021

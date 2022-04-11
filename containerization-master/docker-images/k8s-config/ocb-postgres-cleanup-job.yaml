@@ -1,0 +1,28 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: ocb-postgres-cleaner
+spec:
+  template:
+    metadata:
+      name: ocb-postgres-cleaner
+    spec:
+      containers:
+        - name: shell
+          image: "bash:4.4"
+          command: ["bash", "-c", "rm -rf /var/lib/postgresql/* /var/log/postgresql/*"]
+          volumeMounts:
+            - mountPath: /var/lib/postgresql
+              name: postgre-db
+            - mountPath: /var/log/postgresql
+              name: postgre-log
+      restartPolicy: Never
+      volumes:
+        - name: postgre-db
+          persistentVolumeClaim:
+            claimName: ocb-postgres-db-pv
+            readOnly: false
+        - name: postgre-log
+          persistentVolumeClaim:
+            claimName: ocb-postgres-log-pv
+            readOnly: false

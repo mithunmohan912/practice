@@ -1,0 +1,88 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: ocb-platform
+  labels:
+    app: ocb-platform-web
+spec:
+  replicas: 2
+  serviceName: ocb-platform-service
+  selector:
+    matchLabels:
+      app: ocb-platform-web
+  template:
+    metadata:
+      labels:
+        app: ocb-platform-web
+    spec:
+      containers:
+      - name: ocb-platform-web
+        image: "ocb.docker.repositories.sap.ondemand.com/ocb-platform-web:v83sp06"
+        ports:
+        - name: hazelcast
+          containerPort: 5701
+        imagePullPolicy: Always
+        env:
+        - name: HAZELCAST_KUBERNETES
+          value: "true"
+        ports:
+        - name: tomcat-port
+          containerPort: 8080         
+        - name: hz-port
+          containerPort: 5701
+        resources:
+          requests:
+            cpu: "2"
+            memory: "4Gi"
+          limits:
+            cpu: "4"
+            memory: "8Gi"
+        readinessProbe:
+          httpGet:
+            path: "/platform-web/odata/ns/authenticationservice/$metadata"
+            port: tomcat-port
+          initialDelaySeconds: 300
+          periodSeconds: 10
+          timeoutSeconds: 10    
+        volumeMounts:
+        - name: keyfile-vol
+          mountPath: /ocb-data
+      volumes:
+        - name: keyfile-vol
+          configMap:
+            name: keyfile-config
+      imagePullSecrets:
+      - name: ocb-docker-artifactory
+
+---
+
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: default-cluster
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: view
+subjects:
+- kind: ServiceAccount
+  name: default
+  namespace: default
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: ocb-platform-service
+spec:
+  ports:
+  - name: http
+    port: 8080
+  - name: hazelcast
+    port: 5701
+  selector:
+    app: ocb-platform-web
+  type: ClusterIP
+
+
